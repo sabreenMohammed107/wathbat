@@ -33,7 +33,7 @@
 			<div class="col-lg-7 intro-text mb-5 mb-lg-0">
 				<h2 class="sp-title">{{ __('titles.we-architecture') }}</h2>
 				<p>{{ __('titles.we-architecture-details') }}.</p>
-				<a href="#" class="site-btn sb-dark">{{ __('titles.about') }}</a>
+				<a href="{{url('/contact')}}" class="site-btn sb-dark">{{ __('titles.about') }}</a>
 			</div>
 			<div class="col-lg-5 pt-4">
 				<img src="{{ asset('webasset/img/pic1.jpeg')}}" alt="">

@@ -40,7 +40,7 @@
 						<h2>01.</h2>
 						<h3>{{ __('titles.idea') }}</h3>
 						<p>{{ __('titles.idea-details') }}</p>
-						<a href="#" class="readmore">READ MORE</a>
+						<a href="{{url('/contact')}}" class="readmore">{{ __('titles.get-touch') }}</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
@@ -48,7 +48,7 @@
 						<h2>02.</h2>
 						<h3>{{ __('titles.behind-work') }}</h3>
 						<p>{{ __('titles.behind-work-details') }}</p>
-						<a href="#" class="readmore">READ MORE</a>
+						<a href="{{url('/contact')}}" class="readmore">{{ __('titles.get-touch') }}</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-12">
@@ -56,7 +56,7 @@
 						<h2>03.</h2>
 						<h3>{{ __('titles.success') }}</h3>
 						<p>{{ __('titles.success-details') }}</p>
-						<a href="#" class="readmore">READ MORE</a>
+						<a href="{{url('/contact')}}" class="readmore">{{ __('titles.get-touch') }}</a>
 					</div>
 				</div>
 			</div>

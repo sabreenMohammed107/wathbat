@@ -8,7 +8,7 @@
 					<p>{{ __('titles.fabulouse-details') }}.</p>
 				</div>
 				<div class="col-lg-3 text-lg-right">
-					<a href="#" class="site-btn sb-light mt-4">{{ __('titles.get-touch') }}</a>
+					<a href="{{url('/contact')}}" class="site-btn sb-light mt-4">{{ __('titles.get-touch') }}</a>
 				</div>
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 									<li><a href="{{url('/about')}}"><i class="fas fa-dot-circle"></i> {{ __('titles.about') }}</a></li>
 									<li><a href="{{url('/services')}}"><i class="fas fa-dot-circle"></i> {{ __('titles.services') }}</a></li>
 									<li><a href="{{url('/portfolio')}}"><i class="fas fa-dot-circle"></i> {{ __('titles.portfolio') }}</a></li>
-									<li><a href="#"><i class="fas fa-dot-circle"></i> {{ __('titles.helpdesk') }}</a></li>
+									<li><a href="{{url('/contact')}}"><i class="fas fa-dot-circle"></i> {{ __('titles.contact') }}</a></li>
 								</ul>
 							</div>
 						</div>
