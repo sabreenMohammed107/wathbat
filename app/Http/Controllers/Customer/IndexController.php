@@ -217,8 +217,10 @@ class IndexController extends Controller
             $price=$sector->price_per_meter;
             $data['sector_type'] = $request->input('sector_type');
         }
-        $avg=((($request->input('width')+80)*($request->input('height')+80))/1000000);
-        $total =  $avg * $price;
+        $width=($request->input('width'))*10;
+        $height=($request->input('height'))*10;
+        $avg=(($width+80)*($height+80))/1000000;
+        $total =$avg * $price;
         $data['total'] = $total;
         // return($data);
         return view('Customer.home.quote', compact('data', 'type', 'style', 'sector'));

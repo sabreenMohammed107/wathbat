@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use View;
+use App\Models\Wathbat_social;
 use App\Models\Wathbat_data;
 
 class Controller extends BaseController
@@ -21,6 +22,11 @@ class Controller extends BaseController
             $branch = new Wathbat_data();
         }
 
-        View::share(['branch' => $branch]);
+        $social = Wathbat_social::first();
+
+        if ($social == null) {
+            $social = new Wathbat_social();
+        }
+        View::share(['branch' => $branch,'social' => $social]);
     }
 }

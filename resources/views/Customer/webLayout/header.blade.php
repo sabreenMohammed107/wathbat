@@ -38,10 +38,10 @@
 	<div class="left-bar">
 		<div class="left-bar-content">
 			<div class="social-links">
-				<a href="#"><i class="fa fa-facebook"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-linkedin"></i></a>
-				<a href="#"><i class="fa fa-instagram"></i></a>
+				<a href="{{$social->facebook_url}}" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="{{$social->twitter_url}}" target="_blank"><i class="fa fa-twitter"></i></a>
+				<a href="{{$social->linkedin_url}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+				<a href="{{$social->instgram_url}}" target="_blank"><i class="fa fa-instagram"></i></a>
 			</div>
 		</div>
 	</div>
