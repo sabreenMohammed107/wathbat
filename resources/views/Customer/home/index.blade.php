@@ -14,7 +14,7 @@
 					@else
 					{{$slider->master_ar_text}}
 					@endif </h2>
-				<a href="#" class="site-btn sb-light">{{ __('titles.our-services') }}</a>
+				<a href="{{url('/services')}}" class="site-btn sb-light">{{ __('titles.our-services') }}</a>
 			</div>
 		</div>
 	</div>
