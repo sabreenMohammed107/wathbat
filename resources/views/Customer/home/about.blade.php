@@ -4,7 +4,7 @@
 <!-- hero slider area -->
 <div class="page-header-section set-bg" data-setbg="{{ asset('webasset/img/contact3.jpg')}}">
 			<div class="container">
-				<h1 class="header-title">About US<span>.</span></h1>
+				<h1 class="header-title">{{ __('titles.about') }}<span>.</span></h1>
 			</div>
 		</div>
 	</section>
