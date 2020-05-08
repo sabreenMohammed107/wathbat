@@ -52,8 +52,8 @@
 								<i class="fas fa-dice-d20"></i>
 							</div>
 						</div>
-						<h3>{{ __('titles.alumetal-interfaces ') }}</h3>
-						<p>{{ __('titles.alumetal-interfaces-details ') }}</p>
+						<h3>{{ __('titles.alumetal-interfaces') }}</h3>
+						<p>{{ __('titles.alumetal-interfaces-details') }}</p>
 						<!-- <a href="#" class="readmore">READ MORE</a> -->
 					</div>
 				</div>
@@ -64,8 +64,8 @@
 								<i class="fas fa-sort-amount-up-alt"></i>
 							</div>
 						</div>
-						<h3>{{ __('titles.alumetal-stairs ') }}</h3>
-						<p>{{ __('titles.alumetal-stairs-details ') }}</p>
+						<h3>{{ __('titles.alumetal-stairs') }}</h3>
+						<p>{{ __('titles.alumetal-stairs-details') }}</p>
 						<!-- <a href="#" class="readmore">READ MORE</a> -->
 					</div>
 				</div>
@@ -76,8 +76,8 @@
 								<i class="fas fa-map"></i>
 							</div>
 						</div>
-						<h3>{{ __('titles.alumetal-windows ') }}</h3>
-						<p>{{ __('titles.alumetal-windows-details ') }}</p>
+						<h3>{{ __('titles.alumetal-windows') }}</h3>
+						<p>{{ __('titles.alumetal-windows-details') }}</p>
 						<!-- <a href="#" class="readmore">READ MORE</a> -->
 					</div>
 				</div>
@@ -88,8 +88,8 @@
 								<i class="fas fa-door-open"></i>
 							</div>
 						</div>
-						<h3>{{ __('titles.sliding-doors ') }}</h3>
-						<p>{{ __('titles.sliding-doors ') }}</p>
+						<h3>{{ __('titles.sliding-doors') }}</h3>
+						<p>{{ __('titles.sliding-doors') }}</p>
 						<!-- <a href="#" class="readmore">READ MORE</a> -->
 					</div>
 				</div>
@@ -100,8 +100,8 @@
 								<i class="fas fa-building"></i>
 							</div>
 						</div>
-						<h3>{{ __('titles.aluminum-balconies ') }}</h3>
-						<p>{{ __('titles.aluminum-balconies-details ') }}</p>
+						<h3>{{ __('titles.aluminum-balconies') }}</h3>
+						<p>{{ __('titles.aluminum-balconies-details') }}</p>
 						<!-- <a href="#" class="readmore">READ MORE</a> -->
 					</div>
 				</div>
@@ -112,8 +112,8 @@
 								<i class="fas fa-city"></i>
 							</div>
 						</div>
-						<h3>{{ __('titles.alumetal-interfaces ') }}</h3>
-						<p>{{ __('titles.alumetal-interfaces-details ') }}</p>
+						<h3>{{ __('titles.alumetal-interfaces') }}</h3>
+						<p>{{ __('titles.alumetal-interfaces-details') }}</p>
 						<!-- <a href="#" class="readmore">READ MORE</a> -->
 					</div>
 				</div>
