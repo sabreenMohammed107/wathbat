@@ -32,4 +32,10 @@ Route::group(['namespace' => 'Admin'], function () {
      Route::resource('/admin/client', 'ClientController');
       // ---------------client-review------------------
       Route::resource('/admin/client-review', 'ClientReviewController');
+       // ---------------Quate------------------
+       Route::resource('/admin/quate', 'QuateController');
+       Route::get('/admin/editQuate/{id}', 'QuateController@editQuate')->name('editQuate');
+       Route::post('/admin/add-sector', 'QuateController@addSector')->name('addSector');
+       Route::post('/admin/Edit-sector', 'QuateController@updateSector')->name('updateSector');
+       Route::post('/admin/delete-sector/{id}', 'QuateController@deleteSector')->name('deleteSector');
 });
