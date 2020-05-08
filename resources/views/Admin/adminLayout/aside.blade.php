@@ -26,6 +26,7 @@
                   <li> <a href="{{ route('wathbat-number.index') }}">Wathbat in Numbers</a> </li>
                   <li> <a href="{{ route('portfolio.index') }}">Portfolio</a> </li>
                   <li> <a href="{{ route('wathbat_data.index') }}">Wathbat Data</a> </li>
+                  <li> <a href="{{ route('quate-type.index') }}">Quotation Type</a> </li>
                   <li> <a href="{{ route('quate.index') }}">Quotation Data</a> </li>
         
                  

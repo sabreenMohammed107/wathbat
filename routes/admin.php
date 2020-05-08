@@ -32,6 +32,8 @@ Route::group(['namespace' => 'Admin'], function () {
      Route::resource('/admin/client', 'ClientController');
       // ---------------client-review------------------
       Route::resource('/admin/client-review', 'ClientReviewController');
+        // ---------------QuotationTypes------------------
+        Route::resource('/admin/quate-type', 'QuotationTypesController');
        // ---------------Quate------------------
        Route::resource('/admin/quate', 'QuateController');
        Route::get('/admin/editQuate/{id}', 'QuateController@editQuate')->name('editQuate');
