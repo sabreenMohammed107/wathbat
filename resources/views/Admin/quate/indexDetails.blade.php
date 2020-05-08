@@ -20,7 +20,8 @@
 <div class="ms-panel">
     <div class="ms-panel-header d-flex justify-content-between">
         <h6>{{$row->en_type}}</h6>
-        <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#addnumber"> add </a>    
+        <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#addnumber"> add </a> 
+       
     </div>
     <div class="ms-panel-body">
         <div class="table-responsive">
@@ -66,8 +67,12 @@
         </div>
     </div>
 </div>
+<div class="input-group d-flex justify-content-end text-center">
+        <a href="{{ route('quate.index') }}" style="float: right;margin-right: 50px;margin-bottom: 20px" class="btn btn-danger "> Cancel</a>
 
+    </div>
 </div>
+
         </div>
         <!-- /.row -->
 

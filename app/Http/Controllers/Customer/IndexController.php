@@ -172,8 +172,9 @@ class IndexController extends Controller
 
             $output .= '<option value="' . $row->id . '">' . $row->ar_sector . '</option>';
         }
-        echo $output;
+      
     }
+    echo $output;
 }
     function fetchLastes(Request $request)
     {
