@@ -4,7 +4,7 @@
 <!-- hero slider area -->
 <div class="page-header-section set-bg" data-setbg="{{ asset('webasset/img/protfolio.jpg')}}">
 	<div class="container">
-		<h1 class="header-title">{{ __('titles.portfolio ') }}<span>.</span></h1>
+		<h1 class="header-title">{{ __('titles.portfolio') }}<span>.</span></h1>
 	</div>
 </div>
 </section>
@@ -16,9 +16,9 @@
 		<div class="row">
 			<div class="col-lg-5 col-md-12">
 				<div class="blog-content">
-					<h2 style="font-size:25px">{{ __('titles.unique-touch ') }}</h2>
-					<p>{{ __('titles.unique-touch-1 ') }}</p>
-					<p>{{ __('titles.unique-touch-2 ') }}</p>
+					<h2 style="font-size:25px">{{ __('titles.unique-touch') }}</h2>
+					<p>{{ __('titles.unique-touch-1') }}</p>
+					<p>{{ __('titles.unique-touch-2') }}</p>
 				</div>
 			</div>
 			<div class="col-lg-7 col-md-12">
@@ -42,7 +42,7 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="section-title">
-					<h1>{{ __('titles.projects ') }}</h1>
+					<h1>{{ __('titles.projects') }}</h1>
 				</div>
 			</div>
 			<div class="col-lg-9">
@@ -71,7 +71,7 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="section-title">
-					<h1>{{ __('titles.gallery ') }}</h1>
+					<h1>{{ __('titles.gallery') }}</h1>
 				</div>
 			</div>
 			<!-- portfolio filter menu -->
