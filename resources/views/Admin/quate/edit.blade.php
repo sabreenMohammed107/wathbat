@@ -60,7 +60,7 @@
 
 
                         <div class="input-group d-flex justify-content-end text-center">
-                            <a href="{{ route('quate.edit',$rowId) }}" class="btn btn-dark mx-2"> Cancel</a>
+                            <a href="{{ route('wathbat_project.index') }}" class="btn btn-dark mx-2"> Cancel</a>
                             <input type="submit" value="Add" class="btn btn-success ">
                         </div>
                 </form>

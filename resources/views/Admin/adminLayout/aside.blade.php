@@ -53,7 +53,7 @@
               <span><i class="material-icons fs-16">build</i>Projects</span>
             </a>
               <ul id="Usersdropdown" class="collapse" aria-labelledby="basic-elements" data-parent="#side-nav-accordion">
-                  <li> <a href="Wathbat_Projects.html">Wathbat Projects</a> </li>
+                  <li> <a href="{{ route('wathbat_project.index') }}">Wathbat Projects</a> </li>
                  
                   
                  
