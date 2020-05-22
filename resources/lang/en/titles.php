@@ -22,13 +22,13 @@ return [
 'slogan'=>'We will never stop innvoating',
 'our-projects'=>'Our Projects',
 'our-clients'=>'Our Clients',
-'height'=>'height',
-'width'=>'Width',
+'height'=>'height (cm)',
+'width'=>'Width (cm)',
 'type'=>'Type',
 'type-style'=>'Type Style',
 'sector-type'=>'Sector Type',
-'aluminium-thickness'=>'Aluminium Thickness',
-'glass'=>'Glass',
+'aluminium-thickness'=>'Aluminium Thickness (mm)',
+'glass'=>'Glass (mm)',
 'color'=>'Color',
 'get-quote'=>'Get Quote',
 
@@ -92,6 +92,8 @@ return [
 'about-customer'=>'About Customer',
 'print'=>'Print',
 'price'=>'Total Price',
+'quoteprice'=>'Price Per Meter',
+'rs'=>'SAR',
 
 
 

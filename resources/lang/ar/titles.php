@@ -22,13 +22,13 @@ return [
 'slogan'=>'لن نتوقف عن الإبتكار',
 'our-projects'=>'مشاريع وثبة',
 'our-clients'=>'عملاء وثبة',
-'height'=>'الإرتفاع',
-'width'=>'العرض',
+'height'=>'الإرتفاع (سم)',
+'width'=>'العرض (سم) ',
 'type'=>'النوع',
 'type-style'=>'شكل النوع',
 'sector-type'=>'نوع القطاع',
-'aluminium-thickness'=>'سماكة الألمونيوم',
-'glass'=>'الزجاج',
+'aluminium-thickness'=>'سماكة الألمونيوم (مم)',
+'glass'=>'الزجاج (مم)',
 'color'=>'اللون',
 'get-quote'=>'عرض السعر',
 
@@ -93,6 +93,8 @@ return [
 'about-customer'=>'عن العميل',
 'print'=>'إطبع',
 'price'=>'إجمالى السعر',
+'quoteprice'=>'السعر بالمتر',
+'rs'=>'رس',
 
 
 

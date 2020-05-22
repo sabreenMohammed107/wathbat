@@ -5,7 +5,7 @@
 
 <!-- Header section start -->
 <header class="header-area">
-	<a href="index.html" class="logo-area" style="color:#ffffff !important"><img src="{{ asset('webasset/img/logo1.png')}}" alt=""> Wathbat Al-Tamyoz</a>
+	<a href="{{url('/')}}" class="logo-area" style="color:#ffffff !important"><img src="{{ asset('webasset/img/logo1.png')}}" alt=""> Wathbat Al-Tamyoz</a>
 	<div class="nav-switch">
 		<i class="fa fa-bars"></i>
 	</div>

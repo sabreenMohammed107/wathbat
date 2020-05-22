@@ -30,6 +30,7 @@ class IndexController extends Controller
         $clients = Wathbat_client::where('active', '=', 1)->orderBy("created_at", "Desc")->get();
         //
         $types = Type::all();
+        
         return view('Customer.home.index', compact('sliders', 'projects', 'clients', 'types'));
     }
 
@@ -186,6 +187,7 @@ class IndexController extends Controller
 
         array_push($dataAjax, $data->aluminium_thickness);
         array_push($dataAjax, $data->glass);
+        array_push($dataAjax, $data->price_per_meter);
 
         return ($dataAjax);
     }
@@ -219,7 +221,7 @@ class IndexController extends Controller
         }
         $width=($request->input('width'))*10;
         $height=($request->input('height'))*10;
-        $avg=(($width+80)*($height+80))/1000000;
+        $avg=(($width)*($height))/1000000;
         $total =$avg * $price;
         $data['total'] = $total;
         // return($data);

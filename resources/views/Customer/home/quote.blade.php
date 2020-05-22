@@ -16,6 +16,12 @@
         <h1>{{ __('titles.quote') }}</h1>
         <p>{{ __('titles.slogan') }}</p>
     </div>
+    <style>
+			body.rtl .vw-quote input 
+		 {
+				direction: rtl;
+			}
+		</style>
     <div class="container set-bg">
         <div class="row">
             <div class="col-lg-8 col-md-12 offset-lg-2 vw-quote">
@@ -53,7 +59,12 @@
 
                         </div>
                     </div>
-                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+							<div class="form-group">
+								<label class="txt-white">{{ __('titles.quoteprice') }} </label>
+								<input class="form-control" name="width" id="pricePerMeter" type="text" value="{{$sector->price_per_meter}} {{ __('titles.rs') }} " disabled>
+							</div>
+						</div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="txt-white">{{ __('titles.aluminium-thickness') }}  </label>
@@ -76,7 +87,7 @@
                     <div class="col-md-8 offset-lg-2">
                         <div class="form-group">
                             <label class="txt-white">{{ __('titles.price') }}</label>
-                            <input class="form-control" type="text" value="{{$data['total']}}"  disabled>
+                            <input class="form-control" type="text" value="{{$data['total']}} {{ __('titles.rs') }} "  disabled>
                         </div>
                     </div>
                     <div class="col-md-8 offset-lg-2">

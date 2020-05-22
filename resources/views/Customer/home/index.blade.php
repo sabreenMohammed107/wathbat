@@ -49,6 +49,15 @@
 			<h1 class="txt-white">{{ __('titles.quote') }}</h1>
 			<p class="txt-white">{{ __('titles.slogan') }}</p>
 		</div>
+		<style>
+			body.rtl form{
+				direction: rtl;
+			}
+			body.rtl form input ,
+			body.rtl form select {
+				direction: rtl;
+			}
+		</style>
 		<div class="container"style="padding-bottom:35px">
 			<div class="row">
 				<div class="col-lg-8 col-md-12 offset-lg-2">
@@ -84,6 +93,7 @@
 								</select>
 							</div>
 						</div>
+					
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="txt-white">{{ __('titles.type-style') }} </label>
@@ -100,7 +110,12 @@
 								</select>
 							</div>
 						</div>
-						<div class="col-md-6"></div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="txt-white">{{ __('titles.quoteprice') }} </label>
+								<input class="form-control" name="width" id="pricePerMeter" type="text" value="" disabled>
+							</div>
+						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="txt-white">{{ __('titles.aluminium-thickness') }} </label>
@@ -264,6 +279,8 @@
 					
 						$('#aluminium_thickness').val(result[0]);
 						$('#glass').val(result[1]);
+						$('#pricePerMeter').val(result[2]+" {{ __('titles.rs') }} ");
+						
 					}
 
 				})
