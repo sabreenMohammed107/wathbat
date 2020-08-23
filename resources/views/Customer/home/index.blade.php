@@ -45,25 +45,49 @@
 
 <!-- Get a Quotation section start -->
 <section class="spad set-bg qoute" data-setbg="{{ asset('webasset/img/contact4.jpg')}}" style="padding:0px;">
-		<div class="section-title col-lg-12"style="padding-top:50px">
-			<h1 class="txt-white">{{ __('titles.quote') }}</h1>
-			<p class="txt-white">{{ __('titles.slogan') }}</p>
-		</div>
-		<style>
-			body.rtl form{
-				direction: rtl;
-			}
-			body.rtl form input ,
-			body.rtl form select {
-				direction: rtl;
-			}
-		</style>
-		<div class="container"style="padding-bottom:35px">
-			<div class="row">
-				<div class="col-lg-8 col-md-12 offset-lg-2">
-				<form action="{{url('/quoteForm')}}" method="GET">
-				
-					<input type="hidden" name="langu" id="langu" value="{{app()->getLocale()}}" >
+	<div class="section-title col-lg-12" style="padding-top:50px">
+		<h1 class="txt-white">{{ __('titles.quote') }}</h1>
+		<p class="txt-white">{{ __('titles.slogan') }}</p>
+	</div>
+	<style>
+		body.rtl form {
+			direction: rtl;
+		}
+
+		body.rtl form input,
+		body.rtl form select {
+			direction: rtl;
+		}
+			hr {
+  border: 1px solid lightgrey;
+}
+a.price {
+  float: left;
+  color: grey;
+}
+span.price {
+  float: right;
+  color: grey;
+}
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+	
+	</style>
+	<div class="container" style="padding-bottom:35px">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 ">
+				<aside id="here" style="color:#FFF">
+			
+							@include('Customer.home.qoutta')
+				</aside >
+			</div>
+			<div class="col-lg-6 col-md-6 ">
+				<form id="myforma" action="" method="GET">
+
+					<input type="hidden" name="langu" id="langu" value="{{app()->getLocale()}}">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
@@ -93,7 +117,7 @@
 								</select>
 							</div>
 						</div>
-					
+
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="txt-white">{{ __('titles.type-style') }} </label>
@@ -130,21 +154,32 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
+								<label class="txt-white">{{ __('titles.amount') }} </label>
+								<input class="form-control" name="amount" id="glass" type="number" value="1" placeholder="{{ __('titles.amount') }}" >
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
 								<label class="txt-white">{{ __('titles.color') }} </label>
 								<input type="color" name="color" value="#0000">
 							</div>
 						</div>
 						<div class="col-lg-10">
-							<form class="contact-form">
-							<button type="submit" class="site-btn sb-light get-quote">{{ __('titles.get-quote') }} </button>
-							</form>
-						</div>
-					</div>
-				</div>
+							<div class="contact-form">
+								<button  onclick="addtocard(this)" class="site-btn sb-light get-quote">{{ __('titles.get-more') }} </button>
+
+							</div>
+				</form>
+
+
 			</div>
 		</div>
-	</section>
-	<!-- Get a Quotation section end -->
+	</div>
+
+	</div>
+	</div>
+</section>
+<!-- Get a Quotation section end -->
 
 <!-- Categories section start -->
 <div class="">
@@ -191,14 +226,14 @@
 	<div class="">
 		<div id="client-carousel" class="client-slider">
 			@foreach($clients as $client)
-			
+
 			<div class="single-brand">
 				<a href="#">
 					<img src="{{ asset('uploads/'.$client->logo) }}" alt="">
 				</a>
 			</div>
 			@endforeach
-		
+
 		</div>
 	</div>
 </div>
@@ -210,6 +245,32 @@
 @section('scripts')
 
 <script>
+function addtocard(theForm) {
+    theForm = $(theForm).closest("form");
+	event.preventDefault();
+	    $.ajax({ // create an AJAX call...
+        data: $(theForm).serialize(), // get the form data
+		method: "get", // GET or POST
+        url:"{{url('/addToCard')}}", // the file to call
+        success: function (response) { // on success..
+	
+            $('#here').html(response); // update the DIV
+			document.getElementById("myforma").reset();
+        }
+    });
+}
+function removeItem(data) {
+	  alert('dd',data),
+	    $.ajax({ // create an AJAX call...
+        data: 20, // get the form data
+		method:GET,
+        url:"{{url('/removeItem',data)}}", // the file to call
+        success: function (response) { // on success..
+            $('#here').html(response); // update the DIV
+			document.getElementById("myforma").reset();
+        }
+    });
+}
 	$(document).ready(function() {
 
 		$('.dynamic').change(function() {
@@ -217,15 +278,15 @@
 			if ($(this).val() != '') {
 				var select = $(this).attr("id");
 				var value = $(this).val();
-				var lang=$('#langu').val();
-			
+				var lang = $('#langu').val();
+
 				$.ajax({
 					url: "{{route('dynamicdependentCat.fetch')}}",
 					method: "get",
 					data: {
 						select: select,
 						value: value,
-						lang:lang,
+						lang: lang,
 					},
 					success: function(result) {
 
@@ -240,7 +301,7 @@
 			if ($(this).val() != '') {
 				var select = $(this).attr("id");
 				var value = $(this).val();
-				var lang=$('#langu').val();
+				var lang = $('#langu').val();
 
 
 				$.ajax({
@@ -249,7 +310,7 @@
 					data: {
 						select: select,
 						value: value,
-						lang:lang,
+						lang: lang,
 					},
 					success: function(result) {
 
@@ -276,11 +337,11 @@
 						value: value
 					},
 					success: function(result) {
-					
+
 						$('#aluminium_thickness').val(result[0]);
 						$('#glass').val(result[1]);
-						$('#pricePerMeter').val(result[2]+" {{ __('titles.rs') }} ");
-						
+						$('#pricePerMeter').val(result[2] + " {{ __('titles.rs') }} ");
+
 					}
 
 				})

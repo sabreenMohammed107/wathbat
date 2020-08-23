@@ -184,6 +184,11 @@ class QuateController extends Controller
 
 
         ];
+        if ($request->hasFile('pic')) {
+            $image = $request->file('pic');
+
+            $data['image'] = $this->UplaodImage($image);
+        }
 
         Sector_type::create($data);
 
@@ -205,6 +210,12 @@ class QuateController extends Controller
 
 
         ];
+        if ($request->hasFile('pic')) {
+            $image = $request->file('pic');
+
+            $data['image'] = $this->UplaodImage($image);
+        }
+       
         Sector_type::findOrFail($id)->update($data);
 
         return redirect()->back()->with('flash_success', $this->message);
@@ -213,16 +224,38 @@ class QuateController extends Controller
     public function deleteSector($id)
     {
         $row = Sector_type::where('id', '=', $id)->first();
-
+        $file = $row->image;
 
         try {
 
             $row->delete();
+            File::delete($file);
         } catch (QueryException $q) {
 
             return redirect()->back()->with('flash_danger', 'You cannot delete related with another...');
         }
 
         return redirect()->back()->with('flash_success', 'Data Has Been Deleted Successfully !');
+    }
+
+    public function UplaodImage($file_request)
+	{
+		//  This is Image Info..
+		$file = $file_request;
+		$name = $file->getClientOriginalName();
+		$ext  = $file->getClientOriginalExtension();
+		$size = $file->getSize();
+		$path = $file->getRealPath();
+		$mime = $file->getMimeType();
+
+
+		// Rename The Image ..
+		$imageName =$name;
+		$uploadPath = public_path('uploads');
+		
+		// Move The image..
+		$file->move($uploadPath, $imageName);
+       
+		return $imageName;
     }
 }

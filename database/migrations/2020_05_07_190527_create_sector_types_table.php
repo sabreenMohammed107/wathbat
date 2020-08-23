@@ -15,6 +15,7 @@ class CreateSectorTypesTable extends Migration
     {
         Schema::create('sector_types', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('image', 250)->nullable();
             $table->string('en_sector', 1000)->nullable();
             $table->string('ar_sector', 1000)->nullable();
             $table->integer('type_style_id')->unsigned()->nullable();

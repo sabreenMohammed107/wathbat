@@ -13,8 +13,10 @@ use App\Models\Wathbat_data;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public $qouts;
     public function __construct()
     {
+        $this->qouts=array();
 
         $branch = Wathbat_data::first();
 

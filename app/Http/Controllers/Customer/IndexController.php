@@ -18,11 +18,15 @@ use App\Models\Type;
 use App\Models\Type_style;
 use App\Models\Sector_type;
 use App\Models\Wathbat_in_number;
+use Illuminate\Database\Eloquent\Collection;
+
 use Illuminate\Database\QueryException;
 
 class IndexController extends Controller
 {
-    public function index()
+
+
+    public function index(Request $request)
     {
 
         $sliders = Home_slider::where('active', '=', 1)->orderBy("order", "asc")->get();
@@ -30,8 +34,13 @@ class IndexController extends Controller
         $clients = Wathbat_client::where('active', '=', 1)->orderBy("created_at", "Desc")->get();
         //
         $types = Type::all();
-        
-        return view('Customer.home.index', compact('sliders', 'projects', 'clients', 'types'));
+
+        if ($request->session()->has('qoutsSession')) {
+            $value = $request->session()->get('qoutsSession');
+        } else {
+            $value = array();
+        }
+        return view('Customer.home.indextest', compact('sliders', 'projects', 'value', 'clients', 'types'));
     }
 
     public function projectDetails($id)
@@ -148,7 +157,7 @@ class IndexController extends Controller
                 $output .= '<option value="' . $row->id . '">' . $row->ar_style . '</option>';
             }
         }
-       
+
         echo $output;
     }
 
@@ -162,21 +171,20 @@ class IndexController extends Controller
         $data = Sector_type::where('type_style_id', $value)->get();
         if ($lang === 'en') {
             $output = '<option value="">Select sector</option>';
-      
-        foreach ($data as $row) {
 
-            $output .= '<option value="' . $row->id . '">' . $row->en_sector . '</option>';
-        }
-    } else {
-        $output = '<option value="">إختر القطاع</option>';
-        foreach ($data as $row) {
+            foreach ($data as $row) {
 
-            $output .= '<option value="' . $row->id . '">' . $row->ar_sector . '</option>';
+                $output .= '<option value="' . $row->id . '">' . $row->en_sector . '</option>';
+            }
+        } else {
+            $output = '<option value="">إختر القطاع</option>';
+            foreach ($data as $row) {
+
+                $output .= '<option value="' . $row->id . '">' . $row->ar_sector . '</option>';
+            }
         }
-      
+        echo $output;
     }
-    echo $output;
-}
     function fetchLastes(Request $request)
     {
         $dataAjax = array();
@@ -191,11 +199,17 @@ class IndexController extends Controller
 
         return ($dataAjax);
     }
-
     public function quoteForm(Request $request)
     {
+        $value = $request->session()->get('qoutsSession');
 
-        $price=0;
+       
+        return view('Customer.home.quoteList', compact('value'));
+    }
+    public function quoteForm1(Request $request)
+    {
+
+        $price = 0;
         $data = [
             'height' => $request->input('height'),
             'width' => $request->input('width'),
@@ -216,15 +230,112 @@ class IndexController extends Controller
         }
         if ($request->input('sector_type')) {
             $sector = Sector_type::where('id', '=', $request->input('sector_type'))->first();
-            $price=$sector->price_per_meter;
+            $price = $sector->price_per_meter;
             $data['sector_type'] = $request->input('sector_type');
         }
-        $width=($request->input('width'))*10;
-        $height=($request->input('height'))*10;
-        $avg=(($width)*($height))/1000000;
-        $total =$avg * $price;
+        $width = ($request->input('width')) * 10;
+        $height = ($request->input('height')) * 10;
+        $avg = (($width) * ($height)) / 1000000;
+        $total = $avg * $price;
         $data['total'] = $total;
         // return($data);
         return view('Customer.home.quote', compact('data', 'type', 'style', 'sector'));
+    }
+
+    public function addToCard(Request $request)
+    {
+
+        $price = 0;
+        $data = [
+            'height' => $request->input('height'),
+            'width' => $request->input('width'),
+            'aluminium_thickness' => $request->input('aluminium_thickness'),
+            'glass' => $request->input('glass'),
+            'color' => $request->input('color'),
+            'amount' => $request->input('amount'),
+
+
+
+        ];
+        if ($request->input('type_id')) {
+            $type = Type::where('id', '=', $request->input('type_id'))->first();
+            $data['type_id'] = $request->input('type_id');
+        }
+        if ($request->input('type_style')) {
+            $style = Type_style::where('id', '=', $request->input('type_style'))->first();
+            $data['type_style'] = $request->input('type_style');
+        }
+        if ($request->input('sector_type')) {
+            $sector = Sector_type::where('id', '=', $request->input('sector_type'))->first();
+            $price = $sector->price_per_meter;
+            $data['sector_type'] = $request->input('sector_type');
+        }
+        $width = ($request->input('width')) * 10;
+        $height = ($request->input('height')) * 10;
+        $avg = (($width) * ($height)) / 1000000;
+        $total = $avg * $price;
+        // $data['total'] = $total;
+        // return($data);
+        //new Work
+
+        $obj = new Collection();
+         $obj->total =$total;
+          $obj->type =$type;
+         $obj->style = $style;
+         $obj->sector = $sector;
+        $obj->amount = $request->input('amount');
+        $obj->id = rand(10, 999);
+        $obj->data=$data;
+
+        $request->session()->push('qoutsSession', $obj);
+
+        $value =$request->session()->get('qoutsSession');
+        return view('Customer.home.qoutta', compact('value'))->render();
+    }
+    public function quoteFormTest(Request $request)
+    {
+        $value = $request->session()->get('qoutsSession');
+        // dd($value);
+        $request->session()->forget('qoutsSession');
+    }
+
+    public function removeItem($id)
+    {
+        $value = \Session::get('qoutsSession');
+
+        foreach($value as $key => $vv){
+           
+            if($vv->id == $id){
+             unset($value[$key]);
+                $newClass = array_values($value);
+               \ Session::put('qoutsSession', $value);
+
+            }
+           
+        } 
+        // dd(count( \Session::get('qoutsSession')));
+        // \Session::put('value', $value[$key]);
+        return view('Customer.home.qoutta', compact('value'))->render();
+       
+    }
+
+    public function removeAll()
+    {
+        $value = \Session::get('qoutsSession');
+
+        foreach($value as $key => $vv){
+           
+           
+             unset($value[$key]);
+                $newClass = array_values($value);
+               \ Session::put('qoutsSession', $value);
+
+         }
+           
+        
+        // dd(count( \Session::get('qoutsSession')));
+        // \Session::put('value', $value[$key]);
+        return view('Customer.home.qoutta', compact('value'))->render();
+       
     }
 }

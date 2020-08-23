@@ -94,6 +94,8 @@ return [
 'price'=>'Total Price',
 'quoteprice'=>'Price Per Meter',
 'rs'=>'SAR',
+'get-more'=>'More Offer',
+'amount'=>'Amount',
 
 
 

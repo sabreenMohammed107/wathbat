@@ -27,6 +27,11 @@ Route::namespace('Customer')->group(function () {
   Route::get('dynamicdependentCity/fetch', 'IndexController@fetchCity')->name('dynamicdependentCity.fetch');
   Route::get('dynamicdependentLastes/fetch', 'IndexController@fetchLastes')->name('dynamicdependentLastes.fetch');
   Route::get('/quoteForm', 'IndexController@quoteForm')->name('quoteForm');
+  Route::get('/addToCard', 'IndexController@addToCard')->name('addToCard');
+  Route::get('/quoteFormTest', 'IndexController@quoteFormTest')->name('quoteFormTest');
+  Route::get('/removeItem/{id}', 'IndexController@removeItem')->name('removeItem');
+  Route::get('/removeAll', 'IndexController@removeAll')->name('removeAll');
+
 
    //  Change Lang..
 Route::get('changeLang/{lang}', function($lang){

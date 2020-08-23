@@ -101,6 +101,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
+                                                    <th>Img</th>
                                                     <th scope="col">En Sector</th>
                                                     <th scope="col">Ar Sector</th>
                                                     <th scope="col">Type Style</th>
@@ -115,7 +116,7 @@
                                                 @foreach($sectors as $index => $sector)
                                                 <tr>
                                                     <td>{{$index+1}}</td>
-                                                 
+                                                    <td><img src="{{ asset('uploads/')}}/{{$sector->image }}" alt=""></td>
                                                     <td>{{$sector->en_sector}}</td>
                                                     <td>{{$sector->ar_sector}}</td>
                                                     <td>
@@ -159,14 +160,24 @@
 
                                                                 <div class="ms-auth-container row no-gutters">
                                                                     <div class="col-12 p-3">
-                                                                        <form action="{{route('updateSector')}}" method="POST" >
+                                                                        <form action="{{route('updateSector')}}" method="POST"  enctype="multipart/form-data" >
                                                                             {{ csrf_field() }}
 
                                                                             <input type="hidden" name="type_style_id" value="{{$row->id}}" >
                                                                             <input type="hidden" name="editData" value="{{$sector->id}}" >
                                                                             
                                                                             <div class="ms-auth-container row">
-                                                                               
+                                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <div class="img-upload">
+                                                                        <img src="{{ asset('uploads/')}}/{{$sector->image }}" alt="">
+                                                                        <div class="upload-icon">
+                                                                            <input type="file" name="pic" class="upload">
+                                                                            <i class="fas fa-camera"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                                             <div class="col-md-6">
                                                     <div class="form-group">
                                                         <div class="upload-icon">
@@ -272,11 +283,21 @@
 
                                 <div class="ms-auth-container row no-gutters">
                                     <div class="col-12 p-3">
-                                        <form action="{{route('addSector')}}" method="POST" >
+                                        <form action="{{route('addSector')}}" method="POST" enctype="multipart/form-data" >
                                             @csrf
                                             <input type="hidden" name="type_style_id" value="{{$row->id}}" >
                                             <div class="ms-auth-container row">
-                                               
+                                            <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="img-upload">
+                                            <img src="{{ asset('adminasset/img/default-user.gif')}}" alt="">
+                                            <div class="upload-icon">
+                                                <input type="file" name="pic" class="upload">
+                                                <i class="fas fa-camera    "></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <div class="upload-icon">
