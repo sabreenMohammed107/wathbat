@@ -1,7 +1,7 @@
 <h3 style="color:white">Cart Details</h3>
 <h4 style="color:white">Total Products : <span> @if(Session::has('qoutsSession')){{count(Session::get('qoutsSession'))}}@endif items</span></h4>
 <div class="row">
-      <div class="col-lg-12 col-md-12">
+      <div class="col-lg-11 col-md-11">
             <table class="table" style="color:white">
                   <thead>
                         <tr>

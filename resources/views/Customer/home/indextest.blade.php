@@ -53,7 +53,7 @@
     <div class="container" style="padding-bottom:35px">
         <div class="row">
 
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 quote-index">
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 quote-index">
                 <form id="myforma" action="" method="GET" style="display: inline-block;">
                     <div class="row">
                         <input type="hidden" name="langu" id="langu" value="{{app()->getLocale()}}">
@@ -144,7 +144,9 @@
                     </div>
                 </form>
             </div>
-            <div id="here" class="col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-lg-1 cart-index" style="background-color:rgba(255,255,255,.2);border-radius:.5rem;padding-top:20px">
+            <div id="here" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 cart-index" style="background-color:rgba(255,255,255,.2);border-radius:.5rem;padding-top:20px;max-height: 450px;
+    overflow-y: scroll;width: 100%;overflow-x: hidden;
+">
             @include('Customer.home.qoutta')
             </div>
         </div>
